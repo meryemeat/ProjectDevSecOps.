@@ -1,12 +1,10 @@
 node{
        stage("SCM Checkout"){
-            git 'https://github.com/essole/test_project.git'
+            git 'https://github.com/DevOpsgroup0/ProjectNewRepo.git'
         }
         stage('Build') {
             
             sh 'python3 -m compileall api/linkextractor.py api/main.py'
-                
-            //stash(name: 'compiled-results', includes: 'api/*.py*')
             
         }
         stage('Test') {
@@ -21,7 +19,7 @@ node{
         
         stage("Push docker Image"){
             withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]){
-               sh "docker login -u essole -p ${dockerHubPwd}"
+               sh "docker login -u iccndev -p ${dockerHubPwd}"
             }
             sh "docker-compose push"
         }
