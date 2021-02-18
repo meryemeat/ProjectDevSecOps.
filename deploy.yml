@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: devopsproject
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: api
+        image:  essole/linkextractor-api:v1-py
+        ports:
+        - containerPort: 5000
+      - name: web
+        image:  essole/linkextractor-web:v1-php
+        ports:
+        - containerPort: 8081
+      - name: redis
+        image:  redis
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: web
+  name: devopsproject
+spec:
+  selector:
+    app: web
+  ports:
+  - name: apiport
+    protocol: TCP
+    port: 5000
+    targetPort: 5000
+  - name: webport
+    protocol: TCP
+    port: 8081
+    targetPort: 80
+  

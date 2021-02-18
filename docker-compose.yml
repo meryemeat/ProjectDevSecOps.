@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  api:
+    image: essole/linkextractor-api:v1-py
+    build: ./api
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+  web:
+    image: essole/linkextractor-web:v1-php
+    build: ./www
+    ports:
+      - "8081:80"
+    environment:
+      - API_ENDPOINT=http://api:5000/api/
+  redis:
+    image: redis
+

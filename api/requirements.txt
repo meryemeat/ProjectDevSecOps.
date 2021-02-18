@@ -1,0 +1,8 @@
+beautifulsoup4
+flask
+redis
+requests
+urllib3
+
+
+
