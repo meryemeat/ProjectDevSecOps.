@@ -17,7 +17,28 @@ A web application to extract links and anchor texts from a given web page and an
 ## Try it out
 
 ```
-$ docker-compose up --build
+*Pour commencer il faut tout d'abord installer docker, et kubernetes
+
+*Ensuite lancer un conteneur Jenkins puis faire toutes les configurations nécessaires
+
+*Il faudra toutefois installer les plugins suivant dans l'environement jenkins: Docker-compose build step, kubernetes, Kubernetes continuos-Deploy
+
+* A l'intérieur du conteneur jenkins il faudra prendre soins d'installer au préalable, le python3, le pip3, et le docker-compose
+
+* Pour le login dockerhub, il se peut qu'avec la nouvel version de jenkins l'on trouve des difficultés et donc il faudra installer ces deux librairies "gnupg2 et pass" dans le conteneur jenkins afin de résoudre le problème
+
+* concernant la configuration de kubernetes sur jenkins ce lien sera utile pour le faire: https://www.youtube.com/watch?v=V4kYbHlQYHg&list=WL&index=27&ab_channel=JustmeandOpensource 
+
+* Toujours concernant les problèmes qu'on peut rencontrer, il faudra faire le downgrade des pluglins kubernetes-credentials,kubernetes-client-api,snakeyaml-api,jackson2-api, puis installé les versions suivantes:
+
+-snakeyaml-api v-1.26.3
+-kubernetes-client-api v-4.9.2-1
+-jackson2-api v-2.10.3
+-kubernetes-credentials v-0.6.2
+
+pour savoir comment faire le downgrade des plugins sur jenkins, suivre cette vidéo: https://www.youtube.com/watch?v=d6BU8LBc9Ow&ab_channel=DeekshithSN 
+
+
 ```
 TEAM ICCN2
 
