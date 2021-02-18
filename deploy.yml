@@ -17,11 +17,11 @@ spec:
     spec:
       containers:
       - name: api
-        image:  essole/linkextractor-api:v1-py
+        image:  iccndev/linkextractor-api:v1-py
         ports:
         - containerPort: 5000
       - name: web
-        image:  essole/linkextractor-web:v1-php
+        image:  iccndev/linkextractor-web:v1-php
         ports:
         - containerPort: 8081
       - name: redis
