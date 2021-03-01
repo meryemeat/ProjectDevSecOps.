@@ -30,7 +30,7 @@
 
 <body data-spy="scroll" data-target="#navbarResponsive">
 
-<!--- Start Home Section! --->
+<!--- Start Home Section --->
 <div id="home">
 
 <!--- Navigation --->
