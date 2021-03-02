@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
   $api_endpoint = $_ENV["API_ENDPOINT"] ?: "http://localhost:5000/api/";
   $url = "";
@@ -18,6 +19,16 @@
     }
   }
 ?>
+
+<?php
+// function to get webpage title
+function getTitle($url) {
+    $page = file_get_contents($url);
+    $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $page, $match) ? $match[1] : null;
+    return $title;
+}
+?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -62,7 +73,7 @@
 <div class="caption text-center">
   <section>
       <form action="/">
-        <input class="btn-lg" type="text" name="url" placeholder="place url">
+        <input class="btn-lg" type="text" name="url" placeholder="http://example.com/">
         <input class="btn btn-outline-light btn-lg" type="submit" value="Extract Links">
     </section>
     
@@ -78,6 +89,7 @@
         <h2>Summary</h2>
         <p>
           <strong>Page:</strong> <?php echo "<a href=\"" . $url . "\">" . $url . "</a>"; ?>
+          <h3 style="color: #ffff00;">TITLE:</h3> <?php echo "<a style=\"color: #66ff33;\" href=\"" . $url . "\" >" . getTitle($url) . "</a>"; ?>
         </p>
         <table class="table">
           <thead class="thead-dark">
