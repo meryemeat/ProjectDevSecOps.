@@ -44,7 +44,7 @@ TEAM ICCN2
 
 By:
   -Mohamed Amine AJINOU
-  -Meryem AIT-AHMED BRAHIM
+  -Meryeme AIT AHMED-BRAHIM
   -Ferdinand LANGUIE
   -Lalla BARIKALLAH
   -Siham SABRI
