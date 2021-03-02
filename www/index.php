@@ -44,7 +44,7 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#home"><h4>DevOPs Project - Link Extractor</h4></a>
+        <a class="nav-link" href="#home"><h4>DevOps Project - Link Extractor</h4></a>
       </li>
     </ul>
   </div>
